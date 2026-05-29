@@ -157,7 +157,7 @@ public class Graph {
     public List<Vertex> bfs(String startId) {
         List<Vertex> result = new ArrayList<>();
         Set<String> visited = new HashSet<>();
-        Queue<Vertex> queue = new LinkedList<>();
+        Queue<Vertex> queue = new java.util.ArrayDeque<>();
 
         Vertex start = vertices.get(startId);
         if (start == null) {

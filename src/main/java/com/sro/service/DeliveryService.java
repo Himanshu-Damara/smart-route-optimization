@@ -62,6 +62,9 @@ public class DeliveryService {
      * Create new delivery
      */
     public Delivery createDelivery(Delivery delivery) {
+        if (delivery.getDeliveryId() == null || delivery.getDeliveryId().isBlank()) {
+            delivery.setDeliveryId("D" + String.format("%03d", deliveryRepository.count() + 1));
+        }
         delivery.setStatus(DeliveryStatus.PENDING);
         delivery.setCreatedAt(LocalDateTime.now());
         return deliveryRepository.save(delivery);
